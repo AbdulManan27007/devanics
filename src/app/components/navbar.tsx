@@ -115,6 +115,11 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="cursor-pointer">
+            <Link href="/Blogs" className="cursor-pointer">
+              Blogs
+            </Link>
+          </div>
+            <div className="cursor-pointer">
               <Link href="/Careers" className="cursor-pointer">
                 Careers
               </Link>
@@ -123,9 +128,11 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex">
+          <Link href="/ContactUs">
           <button className="px-6 py-[10px] rounded-[24px] border border-lightblue  text-lightblue transition-colors duration-300 hover:bg-lightblue hover:text-white">
             <p className=" font-gelasio  text-h8">Contact Us</p>
           </button>
+          </Link>
         </div>
 
         <div className="flex items-center lg:hidden">
@@ -178,15 +185,22 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="py-2">
+            <Link href="/Blogs" className="cursor-pointer">
+              Blogs
+            </Link>
+          </div>
+          <div className="py-2">
             <Link href="/Careers" className="cursor-pointer">
               Careers
             </Link>
           </div>
         </div>
         <div className="mx-3 flex flex-col gap-3">
+          <Link href="/ContactUs">
           <button className="rounded-full border border-lightblue py-2 text-lightblue transition-colors duration-300 hover:bg-lightblue hover:text-white">
             <p className="font-gelasio text-h8">Contact Us</p>
           </button>
+          </Link>
         </div>
       </div>
     </div>

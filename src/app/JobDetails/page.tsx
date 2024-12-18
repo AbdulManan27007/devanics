@@ -1,18 +1,26 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Navbar from "@/app/components/navbar";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import JobCards from "../components/Careers-Cards";
 import Footer from "../components/Footer";
-
+import PopUpMessage from "../components/PopUpForm";
 const JobDetails = () => {
-    
-    
-    const handleButtonClick = () => {
-      console.log("Button clicked!");
-    };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleButtonClick = () => {
+    console.log("Button clicked!");
+  };
   return (
     <div>
       <div className="relative w-full bg-gradient-to-r from-[#E0EBF4] via-white to-[#E0EBF4]">
@@ -49,7 +57,7 @@ const JobDetails = () => {
           </p>
         </div>
       </div>
-      {/* text */}
+      {/* Text */}
       <div className="landing-page-container w-full">
         <p className="font-gelasio text-h6 text-grayText">
           We’re on the lookout for a passionate and energetic Account Manager to
@@ -62,7 +70,10 @@ const JobDetails = () => {
           to hear from you!
         </p>
         <div className="group relative mt-[12px] flex flex-row items-center gap-6">
-          <p className="cursor-pointer font-gelasio text-h7 text-lightblue group-hover:text-hoverYellow">
+          <p
+            className="cursor-pointer font-gelasio text-h7 text-lightblue group-hover:text-hoverYellow"
+            onClick={showModal}
+          >
             Apply Now
           </p>
           <span className="group-hover:image-filter">
@@ -77,9 +88,23 @@ const JobDetails = () => {
                 width: "56px",
                 height: "56px",
               }}
+              onClick={showModal}
             ></Button>
           </span>
         </div>
+        {/* Modal */}
+        <Modal
+          visible={isModalVisible}
+          onCancel={handleCancel}
+          footer={null}
+          centered
+          width={727}
+        >
+          <div>
+            {/* Submit Form */}
+            <PopUpMessage />
+          </div>
+        </Modal>
         {/* What you’ll do: */}
         <div className="space-y-3 py-[64px]">
           <p className="font-formalLight text-h3 text-grayHeading">
@@ -192,24 +217,41 @@ const JobDetails = () => {
             </li>
           </ul>
           <div className="group relative mt-[12px] flex flex-row items-center gap-6">
-            <p className="cursor-pointer font-gelasio text-h7 text-lightblue group-hover:text-hoverYellow">
-              Apply Now
-            </p>
-            <span className="group-hover:image-filter">
-              <Button
-                type="primary"
-                shape="circle"
-                icon={<ArrowRightOutlined style={{ color: "#1478F2" }} />}
-                style={{
-                  backgroundColor: "transparent",
-                  border: "2px solid #1478F2",
-                  color: "#1478F2",
-                  width: "56px",
-                  height: "56px",
-                }}
-              ></Button>
-            </span>
+          <p
+            className="cursor-pointer font-gelasio text-h7 text-lightblue group-hover:text-hoverYellow"
+            onClick={showModal}
+          >
+            Apply Now
+          </p>
+          <span className="group-hover:image-filter">
+            <Button
+              type="primary"
+              shape="circle"
+              icon={<ArrowRightOutlined style={{ color: "#1478F2" }} />}
+              style={{
+                backgroundColor: "transparent",
+                border: "2px solid #1478F2",
+                color: "#1478F2",
+                width: "56px",
+                height: "56px",
+              }}
+              onClick={showModal}
+            ></Button>
+          </span>
+        </div>
+        {/* Modal */}
+        <Modal
+          visible={isModalVisible}
+          onCancel={handleCancel}
+          footer={null}
+          centered
+          width={727}
+        >
+          <div>
+            {/* Submit Form */}
+            <PopUpMessage />
           </div>
+        </Modal>
         </div>
       </div>
       {/* Related Jobs */}
@@ -258,7 +300,7 @@ const JobDetails = () => {
         </div>
       </div>
       {/* Footer */}
-      <Footer/>
+      <Footer />
     </div>
   );
 };
