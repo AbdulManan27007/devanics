@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from 'react';
 import Image from "next/image";
-import { Button, Radio } from "antd";
+import { Button, Radio, RadioChangeEvent } from "antd";
 import Navbar from "@/app/components/navbar";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import CareersCards from "../components/Careers-Cards";
@@ -14,11 +14,11 @@ const Careers = () => {
     console.log("Button clicked!");
   };
 
-  const [selectedValue, setSelectedValue] = useState<string | number>("");
-
-  const handleChange = (e: any) => {
-    setSelectedValue(e.target.value);
-  };
+   const [selectedValue, setSelectedValue] = useState<string | number>();
+ 
+   const handleChange = (e: RadioChangeEvent) => {
+     setSelectedValue(e.target.value);
+   };
 
   return (
     <div>

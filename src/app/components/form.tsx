@@ -1,14 +1,16 @@
-import {useState} from "react";
+"use client"
+import React, { useState } from 'react';
 import Image from "next/image";
-import { Button, Radio } from "antd";
+import { Button, Radio, RadioChangeEvent } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 
 const FormB = () => {
-  const [selectedValue, setSelectedValue] = useState<string | number>("");
   
-    const handleChange = (e: any) => {
-      setSelectedValue(e.target.value);
-    };
+  const [selectedValue, setSelectedValue] = useState<string | number>();
+ 
+  const handleChange = (e: RadioChangeEvent) => {
+    setSelectedValue(e.target.value);
+  };
 
   return (
     <div className="h-[971px] w-full bg-[url('/images/landingPage/CTA-bg.png')] bg-cover bg-center">

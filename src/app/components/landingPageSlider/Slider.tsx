@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper as SwiperCore } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -8,7 +9,7 @@ import 'swiper/css/scrollbar';
 import Card from '../landingPageSlider/testimonial';
 
 const SwiperCarousel = () => {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperCore | null>(null);
 
   return (
     <div>

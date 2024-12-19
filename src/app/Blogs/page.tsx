@@ -1,16 +1,16 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from 'react';
 import Image from "next/image";
 import Navbar from "../components/navbar";
-import { Radio } from "antd";
+import { Radio, RadioChangeEvent  } from "antd";
 import BlogDetails from "../components/Blogs";
 import Footer from "../components/Footer";
 import Link from "next/link";
 
 const Blogs = () => {
-  const [selectedValue, setSelectedValue] = useState<string | number>("");
+  const [selectedValue, setSelectedValue] = useState<string | number>();
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: RadioChangeEvent) => {
     setSelectedValue(e.target.value);
   };
 
